@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Notes Manager</title>
+</head>
+<body>
+
+    <h2>Personal Notes Manager</h2>
+
+    <form action="/add" method="POST">
+
+        <label>Note Title:</label>
+        <input type="text" name="title" required>
+        <br><br>
+
+        <label>Note:</label>
+        <textarea name="content" required></textarea>
+        <br><br>
+
+        <button type="submit">Save Note</button>
+
+    </form>
+
+    <h3>My Notes</h3>
+
+    {% for note in notes %}
+
+        <h4>{{ note[1] }}</h4>
+        <p>{{ note[2] }}</p>
+
+        <a href="/delete/{{ note[0] }}">Delete</a>
+
+        <hr>
+
+    {% endfor %}
+
+</body>
+</html>
